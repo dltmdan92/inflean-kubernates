@@ -1,0 +1,7 @@
+FROM python:3.9
+
+RUN mkdir /echo
+
+COPY test_server.py /echo
+
+CMD ["python", "/echo/test_server.py"]
