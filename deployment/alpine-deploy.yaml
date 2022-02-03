@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: alpine-deploy
+  name: alpine-deploy
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      run: alpine-deploy
+  strategy: 
+    type: RollingUpdate
+    rollingUpdate:
+			# 최대 몇 개 까지 pod를 더 만들 것 인가? (10개 + 5개까지 추가 운영)
+      maxSurge: 50%
+			# 최소 몇 개까지 pod를 줄일 것 인가? (10 - 5 = 최소 5개는 운영해야 함)
+      maxUnavailable: 50% 
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: alpine-deploy
+    spec:
+      containers:
+      - image: alpine:3.4
+        name: alpine-deploy
+        resources: {}
+status: {}
