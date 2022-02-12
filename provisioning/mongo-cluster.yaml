@@ -69,4 +69,3 @@ spec:
   gcePersistentDisk:
     pdName: mongodb
     fsType: ext4
-```
