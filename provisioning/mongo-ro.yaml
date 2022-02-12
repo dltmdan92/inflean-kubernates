@@ -38,5 +38,5 @@ spec:
   - ReadOnlyMany
   persistentVolumeReclaimPolicy: Retain
   gcePersistentDisk:
-    pdName: mongodb
+    pdName: mongodb-ro
     fsType: ext4
