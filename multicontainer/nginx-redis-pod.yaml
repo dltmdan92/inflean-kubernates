@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-redis-pod
+  labels:
+    name: nginx-redis-pod
+    type: multicontainer-pod
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    ports:
+    - containerPort: 80
+  - name: redis
+    image: redis
