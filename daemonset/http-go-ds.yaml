@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: http-go
+spec:
+  template:
+    metadata:
+      labels:
+        app: http-go
+  selector:
+    matchLabels:
+      app: http-go
+    spec:
+      tolerations:
+      - key: node-role.kubernetes.io/master
+        effect: NoSchedule
+      containers:
+      - image:  seungmoolee/http-go
+        name:  http-go
